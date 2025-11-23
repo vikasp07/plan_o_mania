@@ -1,0 +1,337 @@
+:root {
+  --primary: #ffd84d; /* accent for hover / buttons */
+  --primary-dark: #f0c43a;
+  --text-color: #ffffff; /* nav text on purple bg */
+  --muted: rgba(255, 255, 255, 0.85);
+  --bg-white: #fff;
+  --transition: all 0.25s ease;
+  --navbar-height: 90px;
+}
+
+/* Page-level background requested by you */
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: #632cd0; /* keep background as requested */
+  color: var(--text-color);
+}
+
+/* Header - visually transparent over the purple background */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--navbar-height);
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  -webkit-backdrop-filter: blur(0px); /* no blur, transparent */
+  backdrop-filter: blur(0px);
+  padding: 0 0;
+}
+
+/* Optional smaller height when scrolled (keeps transparency) */
+.main-header.scrolled {
+  height: 75px;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: none;
+}
+
+/* Container layout - centered with three columns (left, center logo, right) */
+.navbar-container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0.5rem; /* reduced */
+  display: grid;
+  grid-template-columns: 0.8fr auto 0.8fr; /* reduced from 1fr, 1fr */
+  align-items: center;
+  position: relative;
+  gap: 4px; /* reduced from 12px */
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo img,
+.nav-logo-img {
+  height: 78px; /* increased logo size */
+  width: auto;
+  transition: transform var(--transition), height var(--transition);
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
+}
+
+/* Slightly smaller on scrolled state */
+.main-header.scrolled .nav-logo img,
+.main-header.scrolled .nav-logo-img {
+  height: 64px;
+}
+
+/* Left & Right Navs */
+/* Reduced gap to tighten spacing between top-level links */
+.nav-left ul,
+.nav-right ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* reduced spacing */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-left ul {
+  justify-content: flex-start;
+}
+.nav-right ul {
+  justify-content: flex-end;
+}
+
+/* Link styles — use inline-flex so chevron sits immediately beside text (no stray whitespace) */
+.nav-left a,
+.nav-right a,
+.nav-left a:visited,
+.nav-right a:visited,
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 17px; /* slightly reduced for compactness */
+  letter-spacing: 0.2px;
+  position: relative;
+  transition: var(--transition);
+  padding: 6px 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* controls space between text and icon (chevron) */
+}
+
+/* Slightly bolder for active route */
+.nav-left .active,
+.nav-right .active {
+  color: var(--primary);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover effect */
+.nav-left a:hover,
+.nav-right a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+}
+
+/* Chevron: no stray margin, vertical align center */
+.chevron {
+  font-size: 11px;
+  line-height: 1;
+  margin: 0; /* ensure no extra space */
+  color: var(--muted);
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+/* Dropdown */
+.dropdown-root {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.98
+  ); /* dropdown card is light for readability */
+  color: #222;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  padding: 8px 0;
+  min-width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transition);
+  z-index: 50;
+}
+
+/* show dropdown on open class (or you can add :hover behavior) */
+.dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 18px;
+  color: #333;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background: rgba(99, 44, 208, 0.06);
+  color: var(--primary);
+}
+
+/* Contact Button — compact but visible */
+.contact-btn {
+  background: var(--primary);
+  color: #1b1b1b !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  transition: var(--transition);
+  border: none;
+  box-shadow: 0 6px 18px rgba(99, 44, 208, 0.18);
+}
+
+.contact-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(96, 48, 209, 0.18);
+}
+
+/* Mobile Toggle (hamburger) — make it visible on mobile */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  position: absolute;
+  right: 1.5rem;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.mobile-toggle span {
+  width: 100%;
+  height: 4px;
+  background: var(--text-color);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.mobile-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.mobile-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu — full width panel below header */
+.mobile-menu {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background: rgba(
+    99,
+    44,
+    208,
+    0.98
+  ); /* keep purple but slightly translucent */
+  color: var(--text-color);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+}
+
+.mobile-menu.open {
+  max-height: 520px;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 1.2rem 1.5rem;
+  margin: 0;
+}
+
+.mobile-menu li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-menu a {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Mobile service title & submenu style */
+.mobile-services-title {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.mobile-submenu {
+  padding-left: 14px;
+  margin-top: 8px;
+}
+.mobile-submenu li {
+  border: none;
+  padding: 6px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-logo img,
+  .nav-logo-img {
+    height: 64px;
+  }
+
+  .main-header {
+    height: 70px;
+  }
+}
+
+/* Small screens: logo centered, hamburger visible */
+@media (max-width: 520px) {
+  .navbar-container {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 12px;
+  }
+  .nav-logo img,
+  .nav-logo-img {
+    height: 60px;
+  }
+  .mobile-toggle {
+    right: 12px;
+  }
+}

@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+/* ===== Root Variables ===== */
+:root {
+  /* Brand Palette */
+  --primary: #632cd0;
+  --primary-light: #8b5ff8;
+  --primary-dark: #4a1ea1;
+  --accent: #f4b400; /* Gold accent for contrast */
+  --bg-light: #f8f5ff;
+  --bg-dark: #1c0f3e;
+  --text-light: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #777;
+
+  /* Shadows & Effects */
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --radius-lg: 14px;
+  --transition: all 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* ===== Body & Global Styles ===== */
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--text-dark);
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-light) 50%,
+    var(--bg-light) 100%
+  );
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Main App Container ===== */
+.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== Hero / Banner Section ===== */
+.hero {
+  min-height: calc(100vh - 90px);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  color: var(--text-light);
+  background: linear-gradient(
+    120deg,
+    var(--primary-dark) 0%,
+    var(--primary) 50%,
+    var(--primary-light) 100%
+  );
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+/* Light shimmer effect */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15),
+    transparent 70%
+  );
+  animation: rotate-shimmer 20s linear infinite;
+  z-index: 0;
 }
 
-@keyframes App-logo-spin {
+@keyframes rotate-shimmer {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffffff, #f8e8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #e6dbff;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  background: var(--accent);
+  color: var(--bg-dark);
+  padding: 12px 28px;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #ffd54f;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 80px 24px;
+  color: var(--text-dark);
+  background: linear-gradient(
+    135deg,
+    var(--bg-light) 0%,
+    #ffffff 50%,
+    var(--bg-light) 100%
+  );
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--primary-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Links */
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 8px;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--text-light);
+}
+
+/* ===== Utility Classes ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--primary-light),
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .btn {
+    padding: 10px 20px;
   }
 }

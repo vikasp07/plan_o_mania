@@ -1,0 +1,344 @@
+/* ---------- Events.css (updated) ---------- */
+
+:root {
+  /* fallback palette in case variables are not defined */
+  --purple-primary: #6b46c1;
+  --purple-light: #e9d8fd;
+  --bg-light: #f6f7fb;
+  --bg-white: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4a5568;
+  --radius-lg: 16px;
+  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+  --header-height: 72px;
+  --max-width: 1100px;
+}
+
+/* Page */
+.events-page {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+
+/* Hero Section — reduced height, softer gradient, readable text */
+.events-hero {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 70, 193, 0.9) 0%,
+    rgba(128, 90, 213, 0.75) 100%
+  );
+  color: white;
+  padding: 72px 0 48px; /* reduced from 120/80 */
+  text-align: center;
+  overflow: hidden;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* subtle pattern overlay (keeps text readable) */
+.events-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+  opacity: 0.6;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* semi-transparent dark overlay behind text to ensure contrast */
+.events-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  z-index: 1;
+}
+
+/* hero content sits above overlays */
+.events-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Make heading smaller on smaller screens, stronger contrast */
+.events-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* subtitle / lead should be highly readable */
+.events-hero .lead {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  opacity: 0.95;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+/* Section */
+.section {
+  padding: 64px 0;
+  background: var(--bg-light);
+}
+
+/* Card container */
+.events-categories {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* nav */
+.categories-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.category-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  border-radius: 12px;
+}
+
+.category-tab:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+}
+
+.category-tab .icon {
+  font-size: 22px;
+  color: var(--purple-primary);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--purple-light);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+/* active state — keep it readable and not overpowering */
+.category-tab.active {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 70, 193, 0.08),
+    rgba(128, 90, 213, 0.06)
+  );
+  border: 1px solid rgba(107, 70, 193, 0.14);
+}
+
+.category-tab.active .icon {
+  background: white;
+  box-shadow: 0 6px 18px rgba(107, 70, 193, 0.12);
+}
+
+.category-tab .title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ---------- KEY: Category content split (info | gallery) ---------- */
+/* Use grid so we can control gap between info (with button) and gallery */
+.category-content {
+  padding: 32px 12px 18px;
+  display: grid;
+  grid-template-columns: 1fr 460px; /* info takes flexible space, gallery fixed-ish */
+  gap: 36px; /* this gap controls distance between Plan button and image */
+  align-items: start;
+}
+
+/* make info column slightly constrained for readability */
+.category-info {
+  max-width: 680px;
+}
+
+/* Title and description for selected category */
+.category-info h2 {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.category-desc {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* features grid (keeps previous layout) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 8px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* check icon */
+.feature-icon {
+  font-weight: 700;
+  color: var(--purple-primary);
+  min-width: 20px;
+}
+
+/* Ensure the Plan button doesn't sit flush with gallery — give it breathing room */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px; /* small gap above button */
+}
+
+/* primary button (used in JSX) */
+.btn-primary {
+  background: linear-gradient(90deg, var(--purple-primary), #7c5de1);
+  color: white;
+  border: none;
+  box-shadow: 0 8px 22px rgba(107, 70, 193, 0.12);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(107, 70, 193, 0.14);
+}
+
+/* secondary CTA */
+.btn-secondary {
+  background: white;
+  color: var(--purple-primary);
+  border: 1px solid rgba(107, 70, 193, 0.12);
+  font-weight: 700;
+}
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(107, 70, 193, 0.06);
+}
+
+/* Gallery column — make images responsive and nicely rounded */
+.category-gallery {
+  width: 100%;
+  max-width: 540px; /* prevents gallery from being too wide */
+  justify-self: center;
+}
+
+/* If your GalleryGrid component outputs .gallery or <img> tags, these keep them tidy */
+.category-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+/* CTA box (the bottom purple block) — softened */
+.cta-box.light {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 70, 193, 0.9),
+    rgba(128, 90, 213, 0.85)
+  );
+  color: white;
+  padding: 28px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cta-box.light h2 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .category-content {
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+  }
+  .category-gallery {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-hero {
+    padding: 56px 0 36px;
+  }
+  .events-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .categories-nav {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* stack info and gallery on small screens */
+  .category-content {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px 8px 18px;
+  }
+
+  .category-gallery {
+    order: 2;
+    max-width: 100%;
+  }
+
+  .category-info {
+    order: 1;
+  }
+}
+
+/* Container helper (kept as you had it) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

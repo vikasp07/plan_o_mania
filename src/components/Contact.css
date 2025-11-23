@@ -1,0 +1,402 @@
+/* ---- Contact.css ----
+   Improved contrast for purple hero and tightened heading size/spacing
+   Replace or append to your existing Contact.css
+*/
+
+:root {
+  --brand: #6f42c1; /* main purple */
+  --brand-dark: #4b2a86; /* darker purple */
+  --brand-light: #8b5cf6; /* lighter purple */
+  --white: #ffffff;
+  --text-primary: #0f1724; /* dark text for white cards */
+  --text-secondary: #475569;
+  --bg-light: #f8fafc;
+  --bg-secondary: #e9eef8;
+  --purple-primary: #6b46c1;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-light: 0 6px 18px rgba(16, 24, 40, 0.06);
+  --shadow-heavy: 0 12px 40px rgba(15, 23, 42, 0.12);
+  --transition: all 200ms ease;
+  --transition-fast: all 150ms ease;
+}
+
+/* Page wrapper */
+.contact-page {
+  padding-top: var(--header-height, 80px);
+  background: var(--bg-light);
+  min-height: 100vh;
+  color: var(--text-primary);
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Hero */
+.contact-hero {
+  background: linear-gradient(135deg, var(--brand), var(--brand-light));
+  color: var(--white);
+  padding: 84px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-heavy);
+}
+
+/* Add a subtle dark overlay so white text stands out on purple */
+.contact-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep content above overlay */
+.contact-hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Shorter and more readable heading */
+.contact-hero h1 {
+  font-size: 2.25rem; /* reduced size */
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--white);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.2px;
+}
+
+/* Slightly bolder lead copy and improved visibility */
+.contact-hero .lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Section Layout */
+.section {
+  padding: 72px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid spacing — make the hero overlap look less extreme */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-top: -56px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Form container */
+.contact-form-container {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.contact-form-container:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--bg-secondary);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: var(--transition);
+  color: var(--text-primary);
+  background: #fff;
+}
+
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+  color: #94a3b8;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+  outline: none;
+  border-color: var(--brand-light);
+  box-shadow: 0 6px 24px rgba(107, 70, 193, 0.08);
+}
+
+/* Section headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Contact Info Sidebar */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quick-contact {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+}
+
+.quick-contact h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+/* Links */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: var(--transition-fast);
+  background: transparent;
+}
+
+.contact-link:hover {
+  background: var(--bg-secondary);
+  transform: translateX(6px);
+}
+
+.contact-link .icon {
+  font-size: 20px;
+  color: var(--purple-primary);
+  min-width: 28px;
+}
+
+/* make contact text easy to read */
+.contact-link strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-link span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Features list */
+.contact-features {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.contact-features .feature {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contact-features .icon {
+  font-size: 20px;
+  color: var(--purple-primary);
+  min-width: 26px;
+}
+
+.contact-features h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.contact-features p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Business Hours block */
+.business-hours {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
+}
+
+.business-hours h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.business-hours .small-icon {
+  font-size: 16px;
+  color: var(--purple-primary);
+}
+
+.hours-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hours-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--bg-light);
+  border-radius: 8px;
+}
+
+.hours-item .day {
+  font-weight: 500;
+}
+
+.hours-item .time {
+  color: var(--text-secondary);
+}
+
+/* Map container (if used) */
+.map-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+}
+
+/* Benefits */
+.contact-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.benefit-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.04);
+  text-align: left;
+}
+
+.benefit-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.benefit-item p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 0;
+  }
+
+  .contact-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 52px 16px;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .section {
+    padding: 40px 12px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-form-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-hero .lead {
+    font-size: 0.95rem;
+  }
+
+  .contact-link {
+    padding: 10px;
+  }
+
+  .contact-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* subtle background motion (optional) */
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}

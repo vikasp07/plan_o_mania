@@ -1,0 +1,92 @@
+/* LIGHTBOX */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(17, 9, 52, 0.7),
+    rgba(3, 3, 10, 0.92)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+.video-lightbox-inner {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+/* responsive iframe wrapper */
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.video-embed-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* caption area */
+.lightbox-caption {
+  padding: 12px 18px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.32));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* close */
+.video-lightbox .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #fff;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), background var(--transition);
+}
+.video-lightbox .close-btn:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* small screens */
+@media (max-width: 720px) {
+  .thumb-img {
+    height: 180px;
+    object-position: center;
+  }
+  .video-thumbnail {
+    height: 180px;
+  }
+  .lottie-badge {
+    width: 48px;
+    height: 48px;
+    left: 10px;
+    top: 10px;
+  }
+  .video-content h3 {
+    font-size: 1rem;
+  }
+}
