@@ -284,14 +284,14 @@ export default function Home() {
       <section className="video-stories-section">
         <VideoGrid />
       </section>
-      {/* 
+
       <section className="gallery-section section">
         <GalleryGrid
           images={Array.from({ length: 8 }).map(
             (_, i) => `/gallery-${i + 1}.jpg`
           )}
         />
-      </section> */}
+      </section>
 
       <TestimonialSlider />
     </main>
