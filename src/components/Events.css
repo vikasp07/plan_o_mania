@@ -21,78 +21,56 @@
   background: var(--bg-light);
 }
 
-/* Hero Section — reduced height, softer gradient, readable text */
+/* Hero Section — standardized with Contact banner */
 .events-hero {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(107, 70, 193, 0.9) 0%,
-    rgba(128, 90, 213, 0.75) 100%
-  );
+  background: linear-gradient(135deg, #632cd0 0%, #8b5ff8 100%);
   color: white;
-  padding: 72px 0 48px; /* reduced from 120/80 */
+  padding: 100px 20px;
   text-align: center;
   overflow: hidden;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  box-shadow: 0 16px 48px rgba(99, 44, 208, 0.18);
 }
 
-/* subtle pattern overlay (keeps text readable) */
-.events-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.02) 1px,
-    transparent 1px
-  );
-  background-size: 36px 36px;
-  opacity: 0.6;
-  z-index: 1;
-  mix-blend-mode: overlay;
-}
-
-/* semi-transparent dark overlay behind text to ensure contrast */
+/* overlay for text contrast */
 .events-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.06) 100%
-  );
-  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* hero content sits above overlays */
+/* hero content sits above overlay */
 .events-hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 840px;
+  z-index: 1;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
-/* Make heading smaller on smaller screens, stronger contrast */
+/* Standardized heading — match Contact */
 .events-hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 18px;
-  line-height: 1.15;
-  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  margin: 0 0 12px;
+  line-height: 1.05;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.2px;
 }
 
-/* subtitle / lead should be highly readable */
+/* Standardized lead copy — match Contact */
 .events-hero .lead {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-size: 1rem;
   opacity: 0.95;
-  margin-bottom: 24px;
+  margin: 0 auto;
   line-height: 1.6;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-  color: rgba(255, 255, 255, 0.96);
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* Section */
@@ -308,10 +286,10 @@
 
 @media (max-width: 768px) {
   .events-hero {
-    padding: 56px 0 36px;
+    padding: 80px 20px;
   }
   .events-hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   .categories-nav {

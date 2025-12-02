@@ -1,0 +1,227 @@
+/* ===== Vidhi.css ===== */
+
+:root {
+  --purple-primary: #632cd0;
+  --purple-light: #8b5ff8;
+  --accent: #f4b400;
+  --white: #ffffff;
+  --text-dark: #333;
+  --bg-soft: #f6f3ff;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --radius-lg: 12px;
+  --transition: 0.3s ease-in-out;
+}
+
+.vidhi-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #632cd0 0%, #8b5ff8 100%);
+  color: #fff;
+}
+
+/* Hero Section — standardized with Contact banner */
+.vidhi-hero {
+  position: relative;
+  background: linear-gradient(135deg, #632cd0 0%, #8b5ff8 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(99, 44, 208, 0.18);
+}
+
+/* overlay for text contrast */
+.vidhi-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vidhi-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.vidhi-hero h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.05;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.2px;
+}
+
+.vidhi-hero .lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  opacity: 0.95;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.vidhi-hero .actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vidhi-hero .btn {
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.vidhi-hero .btn-primary {
+  background: linear-gradient(90deg, #632cd0, #8b5ff8);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(99, 44, 208, 0.12);
+}
+
+.vidhi-hero .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 44, 208, 0.24);
+}
+
+.vidhi-hero .btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.vidhi-hero .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Section Styles */
+.section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #632cd0 0%, #8b5ff8 100%);
+  color: #fff;
+  box-shadow: 0 16px 48px rgba(99, 44, 208, 0.18);
+  border-radius: 24px;
+  margin-bottom: 32px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Ceremony Card Styles */
+.ceremonies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.ceremony-card {
+  background: linear-gradient(135deg, #6b46c1 0%, #805ad5 100%);
+  color: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(99, 44, 208, 0.22), 0 1.5px 0 #fff inset, 0 0 0 2px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateY(-6px) scale(1.03);
+}
+
+.ceremony-card:hover {
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 0 24px 64px rgba(99, 44, 208, 0.32), 0 2px 0 #fff inset, 0 0 0 4px rgba(255, 255, 255, 0.12);
+}
+
+.ceremony-card .icon {
+  font-size: 40px;
+  color: #f4b400;
+  text-shadow: 0 0 8px #fff, 0 2px 12px #f4b400, 0 0 16px #632cd0;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.ceremony-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #f4b400;
+}
+
+.ceremony-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+/* Container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .vidhi-hero {
+    padding: 80px 20px;
+  }
+
+  .vidhi-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .vidhi-hero .lead {
+    font-size: 0.95rem;
+  }
+
+  .vidhi-hero .actions {
+    flex-direction: column;
+  }
+
+  .vidhi-hero .btn {
+    width: 100%;
+  }
+
+  .section {
+    padding: 40px 20px;
+    border-radius: 12px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .ceremonies-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

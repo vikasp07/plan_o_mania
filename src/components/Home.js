@@ -188,7 +188,7 @@ export default function Home() {
               {
                 icon: <FaCalendarAlt />,
                 title: "Birthday Events",
-                desc: "Create unforgettable moments with our premium birthday celebration services.",
+                desc: "Create unforgettable moments with our premium services.",
                 link: "/events",
               },
               {

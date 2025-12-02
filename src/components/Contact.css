@@ -4,15 +4,15 @@
 */
 
 :root {
-  --brand: #6f42c1; /* main purple */
-  --brand-dark: #4b2a86; /* darker purple */
-  --brand-light: #8b5cf6; /* lighter purple */
+  --brand: #632cd0; /* main purple - matches site brand */
+  --brand-light: #8b5ff8; /* lighter purple */
+  --accent: #f4b400; /* accent yellow */
   --white: #ffffff;
   --text-primary: #0f1724; /* dark text for white cards */
   --text-secondary: #475569;
   --bg-light: #f8fafc;
   --bg-secondary: #e9eef8;
-  --purple-primary: #6b46c1;
+  --purple-primary: #632cd0;
   --radius-md: 12px;
   --radius-lg: 16px;
   --shadow-light: 0 6px 18px rgba(16, 24, 40, 0.06);
@@ -32,13 +32,13 @@
 
 /* Hero */
 .contact-hero {
-  background: linear-gradient(135deg, var(--brand), var(--brand-light));
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
   color: var(--white);
-  padding: 84px 20px;
+  padding: 100px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-heavy);
+  box-shadow: 0 16px 48px rgba(99, 44, 208, 0.18);
 }
 
 /* Add a subtle dark overlay so white text stands out on purple */

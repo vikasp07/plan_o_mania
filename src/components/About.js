@@ -5,28 +5,28 @@ import "aos/dist/aos.css";
 
 const teamMembers = [
   {
-    name: "Ananya Sharma",
+    name: "Prassana",
     role: "Founder & Creative Director",
     bio: "5+ years planning premium events with an eye for detail and storytelling.",
     img: "/team/ananya.jpg",
   },
   {
-    name: "Rohit Mehra",
-    role: "Operations Head",
-    bio: "Makes sure every event runs like clockwork — logistics, vendors & onsite execution.",
-    img: "/team/rohit.jpg",
+    name: "Prassana",
+    role: "Founder & Creative Director",
+    bio: "5+ years planning premium events with an eye for detail and storytelling.",
+    img: "/team/ananya.jpg",
   },
   {
-    name: "Priya Desai",
-    role: "Lead Designer",
-    bio: "Designs stunning themes and visual experiences that guests remember.",
-    img: "/team/priya.jpg",
+    name: "Prassana",
+    role: "Founder & Creative Director",
+    bio: "5+ years planning premium events with an eye for detail and storytelling.",
+    img: "/team/ananya.jpg",
   },
   {
-    name: "Karan Patel",
-    role: "Client Relations",
-    bio: "Your point-of-contact from first call through follow-up; client happiness is priority.",
-    img: "/team/karan.jpg",
+    name: "Prassana",
+    role: "Founder & Creative Director",
+    bio: "5+ years planning premium events with an eye for detail and storytelling.",
+    img: "/team/ananya.jpg",
   },
 ];
 

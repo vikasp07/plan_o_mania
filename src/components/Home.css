@@ -164,6 +164,7 @@ body,
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0.95)
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -385,9 +386,21 @@ body,
   border-radius: 10px;
   text-decoration: none;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
-  color: var(--white);
-  box-shadow: 0 8px 20px rgba(139, 95, 248, 0.08);
+  background: #6a0dad; /* Pure solid purple */
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(106, 13, 173, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.service-link:hover {
+  background: #5c09a0; /* Darker purple hover */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);
+}
+
+.service-link:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.08);
 }
 
 /* ---------------- ABOUT ---------------- */

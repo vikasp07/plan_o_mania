@@ -35,17 +35,34 @@
 
 /* ===== HERO ===== */
 .about-hero {
-  padding: 80px 20px;
-  background: linear-gradient(180deg, var(--brand-light), var(--brand));
-  color: var(--white);
+  background: linear-gradient(135deg, #632cd0 0%, #8b5ff8 100%);
+  color: #ffffff;
+  padding: 100px 20px;
   text-align: center;
-  box-shadow: var(--shadow-heavy);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(99, 44, 208, 0.18);
 }
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 460px;
   gap: 32px;
   align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .eyebrow {
@@ -60,24 +77,28 @@
 }
 
 .hero-title {
-  font-family: "Playfair Display", serif;
-  font-weight: 800;
-  font-size: clamp(2rem, 4.5vw, 3.6rem);
-  margin: 8px 0 16px;
-  line-height: 1.02;
-  text-wrap: balance;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin: 0 0 12px;
+  line-height: 1.05;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.2px;
 }
 
 .hero-title .accent {
-  color: var(--brand-2);
-  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  color: #f4b400;
 }
 
 .hero-sub {
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 680px;
-  font-size: 1.05rem;
-  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 720px;
+  font-size: 1rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
 }
 
 /* quick stats */

@@ -83,7 +83,7 @@ export default function Events() {
       <section className="events-hero">
         <div className="container">
           <div className="events-hero-content">
-            <h1>Crafting Extraordinary Events</h1>
+            <h1>Our Services</h1>
             <p className="lead">
               From intimate gatherings to grand celebrations, we bring your
               vision to life with creativity, precision, and attention to

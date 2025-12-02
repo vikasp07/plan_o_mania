@@ -112,27 +112,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
-              {/* Optional: business hours or map block (kept minimal) */}
-              <div className="business-hours">
-                <h3>
-                  <FaClock className="small-icon" /> Business Hours
-                </h3>
-                <div className="hours-list">
-                  <div className="hours-item">
-                    <div className="day">Mon - Fri</div>
-                    <div className="time">9:00 AM – 7:00 PM</div>
-                  </div>
-                  <div className="hours-item">
-                    <div className="day">Sat</div>
-                    <div className="time">10:00 AM – 5:00 PM</div>
-                  </div>
-                  <div className="hours-item">
-                    <div className="day">Sun</div>
-                    <div className="time">Closed</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

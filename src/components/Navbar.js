@@ -5,7 +5,8 @@ import "./Navbar.css";
 const mainLinks = [
   { name: "Home", path: "/" },
   { name: "Gallery", path: "/gallery" },
-  { name: "Vidhi", path: "/vidhi" }, // removed trailing space
+  { name: "About Us", path: "/about" },
+  { name: "Vidhi", path: "/vidhi" },
   { name: "Contact Us", path: "/contact" },
 ];
 
@@ -67,7 +68,7 @@ export default function Navbar() {
         {/* Left Menu */}
         <nav className="nav-left" aria-label="Primary left navigation">
           <ul>
-            {mainLinks.slice(0, 2).map((link) => (
+            {mainLinks.slice(0, 3).map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
@@ -112,7 +113,7 @@ export default function Navbar() {
               </NavLink>
             </li>
 
-            {mainLinks.slice(2).map((link) => (
+            {mainLinks.slice(3).map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}

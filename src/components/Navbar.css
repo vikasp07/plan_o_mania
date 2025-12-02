@@ -63,7 +63,7 @@ body {
 
 .nav-logo img,
 .nav-logo-img {
-  height: 78px; /* increased logo size */
+  height: 110px; /* increased logo size significantly */
   width: auto;
   transition: transform var(--transition), height var(--transition);
   display: block;
@@ -73,7 +73,7 @@ body {
 /* Slightly smaller on scrolled state */
 .main-header.scrolled .nav-logo img,
 .main-header.scrolled .nav-logo-img {
-  height: 64px;
+  height: 90px;
 }
 
 /* Left & Right Navs */
