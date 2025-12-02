@@ -50,11 +50,6 @@ const contactInfo = [
   },
 ];
 
-const bottomLinks = [
-  { to: "/privacy", text: "Privacy Policy" },
-  { to: "/terms", text: "Terms of Service" },
-];
-
 export default function Footer() {
   return (
     <footer className="footer py-5">

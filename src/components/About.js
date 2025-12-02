@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./About.css";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import "aos/dist/aos.css";
 
 const teamMembers = [

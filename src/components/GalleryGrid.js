@@ -21,7 +21,7 @@ export default function GalleryGrid({ images = [], pageSize = 12 }) {
           <img
             key={i}
             src={src}
-            alt={`Event gallery image ${i + 1}`}
+            alt={`Gallery ${i + 1}`}
             loading="lazy"
             onClick={() => setOpenIdx(i)}
             className="gallery-image"
