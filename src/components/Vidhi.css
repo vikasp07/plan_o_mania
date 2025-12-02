@@ -150,14 +150,16 @@
   color: #fff;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px rgba(99, 44, 208, 0.22), 0 1.5px 0 #fff inset, 0 0 0 2px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(99, 44, 208, 0.22), 0 1.5px 0 #fff inset,
+    0 0 0 2px rgba(255, 255, 255, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   transform: translateY(-6px) scale(1.03);
 }
 
 .ceremony-card:hover {
   transform: translateY(-12px) scale(1.06);
-  box-shadow: 0 24px 64px rgba(99, 44, 208, 0.32), 0 2px 0 #fff inset, 0 0 0 4px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px rgba(99, 44, 208, 0.32), 0 2px 0 #fff inset,
+    0 0 0 4px rgba(255, 255, 255, 0.12);
 }
 
 .ceremony-card .icon {

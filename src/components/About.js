@@ -79,7 +79,7 @@ export default function AboutUs() {
 
           <div className="hero-media" data-aos="zoom-in" data-aos-delay="120">
             <div className="media-card">
-              <img src="/images/about-hero.jpg" alt="Event preview" />
+              <img src="/images/birthday.jpg" alt="Event preview" />
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function AboutUs() {
                     src={m.img}
                     alt={m.name}
                     onError={(e) => {
-                      e.target.src = "/images/team-placeholder.jpg";
+                      e.target.src = "/images/birthday.jpg";
                     }}
                   />
                 </div>
