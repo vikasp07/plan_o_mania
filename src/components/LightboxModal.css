@@ -1,92 +1,142 @@
-/* LIGHTBOX */
-.video-lightbox {
+/* Lightbox Modal Styles */
+.lightbox-modal {
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(17, 9, 52, 0.7),
-    rgba(3, 3, 10, 0.92)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(46, 42, 40, 0.95);
   z-index: 10000;
-  padding: 20px;
-}
-.video-lightbox-inner {
-  width: 100%;
-  max-width: 1100px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
-  position: relative;
-}
-
-/* responsive iframe wrapper */
-.video-embed-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-.video-embed-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* caption area */
-.lightbox-caption {
-  padding: 12px 18px;
-  color: #fff;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.32));
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-/* close */
-.video-lightbox .close-btn {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: none;
-  color: #fff;
-  width: 46px;
-  height: 46px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 22px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--transition), background var(--transition);
-}
-.video-lightbox .close-btn:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.12);
+  padding: 20px;
+  backdrop-filter: blur(8px);
 }
 
-/* small screens */
-@media (max-width: 720px) {
-  .thumb-img {
-    height: 180px;
-    object-position: center;
+.lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 248, 242, 0.1);
+  border: 2px solid rgba(255, 248, 242, 0.3);
+  color: #FFF8F2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 248, 242, 0.2);
+  border-color: rgba(255, 248, 242, 0.5);
+  transform: scale(1.1);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 248, 242, 0.1);
+  border: 2px solid rgba(255, 248, 242, 0.3);
+  color: #FFF8F2;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-nav:hover:not(:disabled) {
+  background: rgba(255, 248, 242, 0.2);
+  border-color: rgba(255, 248, 242, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFF8F2;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(46, 42, 40, 0.8);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 248, 242, 0.2);
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
   }
-  .video-thumbnail {
-    height: 180px;
-  }
-  .lottie-badge {
-    width: 48px;
-    height: 48px;
+
+  .lightbox-prev {
     left: 10px;
-    top: 10px;
   }
-  .video-content h3 {
-    font-size: 1rem;
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox-close {
+    top: -40px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .lightbox-counter {
+    bottom: -35px;
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }

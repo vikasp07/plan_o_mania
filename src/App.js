@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
@@ -12,7 +12,10 @@ import AboutUs from "./components/About";
 import "./animations.css";
 import "./App.css";
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+  const isVidhiPage = location.pathname === "/vidhi";
+
   return (
     <div className="app">
       <Navbar />
@@ -26,7 +29,11 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      <Footer />
+      {!isVidhiPage && <Footer />}
     </div>
   );
+}
+
+export default function App() {
+  return <AppContent />;
 }

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import "./LightboxModal.css";
 
 export default function LightboxModal({
   images = [],
@@ -14,32 +16,66 @@ export default function LightboxModal({
     setIdx((i) => Math.max(i - 1, 0));
   }
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      } else if (e.key === "ArrowLeft") {
+        prev();
+      } else if (e.key === "ArrowRight") {
+        next();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [idx, images.length]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (images.length === 0) return null;
+
   return (
-    <div className="lightbox" onClick={onClose}>
+    <div className="lightbox-modal" onClick={onClose} role="dialog" aria-modal="true" aria-label="Image lightbox">
       <div
-        style={{ position: "relative" }}
+        className="lightbox-content"
         onClick={(e) => e.stopPropagation()}
       >
-        <img src={images[idx]} alt={`lightbox-${idx}`} />
-        <div style={{ position: "absolute", top: 8, right: 8 }}>
-          <button className="btn" onClick={onClose}>
-            Close
-          </button>
+        <button
+          className="lightbox-close"
+          onClick={onClose}
+          aria-label="Close lightbox"
+        >
+          <FaTimes />
+        </button>
+
+        <button
+          className="lightbox-nav lightbox-prev"
+          onClick={prev}
+          disabled={idx === 0}
+          aria-label="Previous image"
+        >
+          <FaChevronLeft />
+        </button>
+
+        <div className="lightbox-image-wrapper">
+          <img
+            src={images[idx]}
+            alt={`Gallery image ${idx + 1} of ${images.length}`}
+            className="lightbox-image"
+          />
+          <div className="lightbox-counter">
+            {idx + 1} / {images.length}
+          </div>
         </div>
-        <div style={{ position: "absolute", left: 8, top: "50%" }}>
-          <button className="btn" onClick={prev} disabled={idx === 0}>
-            Prev
-          </button>
-        </div>
-        <div style={{ position: "absolute", right: 8, top: "50%" }}>
-          <button
-            className="btn"
-            onClick={next}
-            disabled={idx === images.length - 1}
-          >
-            Next
-          </button>
-        </div>
+
+        <button
+          className="lightbox-nav lightbox-next"
+          onClick={next}
+          disabled={idx === images.length - 1}
+          aria-label="Next image"
+        >
+          <FaChevronRight />
+        </button>
       </div>
     </div>
   );
