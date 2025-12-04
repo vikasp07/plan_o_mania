@@ -22,9 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.ASSETS_REQUIRED.md
-/public/assets
-.hero.mp4.mov
+# Asset files - exclude from repository
+ASSETS_REQUIRED.md
+hero.mp4.mov
+/public/assets/
 
 
 
