@@ -1,6 +1,6 @@
-import React from "react";
 
-import { Routes, Route, useLocation } from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
@@ -13,10 +13,7 @@ import AboutUs from "./components/About";
 import "./animations.css";
 import "./App.css";
 
-function AppContent() {
-  const location = useLocation();
-  const isVidhiPage = location.pathname === "/vidhi";
-
+export default function App() {
   return (
     <div className="app">
       <Navbar />
@@ -30,11 +27,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isVidhiPage && <Footer />}
+      <Footer />
     </div>
   );
-}
-
-export default function App() {
-  return <AppContent />;
 }
