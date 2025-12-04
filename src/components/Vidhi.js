@@ -317,7 +317,7 @@ export default function Vidhi() {
         <div className="hero-content">
           <div className="hero-text-container">
             <h1 className="hero-title-line">
-              VIDHI by
+              VIDHI By
             </h1>
             <div className="language-text-wrapper">
               <AnimatePresence mode="wait">

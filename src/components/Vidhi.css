@@ -251,7 +251,7 @@ html {
 }
 
 .petal:nth-child(5) .petal-svg {
-  color: rgb(252, 161, 255); /* Light pink */
+  color: rgba(209, 139, 212, 0.549); /* Light pink */
 }
 
 .petal:nth-child(7) .petal-svg {
